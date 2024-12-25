@@ -1,26 +1,32 @@
 def main():
     buch_path = "books/frankenstein.txt"
-    buch = lese_buch(buch_path)
-    words = zaehle_woerter(buch)
-    print(buch)
+    buch = read_text(buch_path)
+    words = count_words(buch)
     print(f"{words} Wörter gefunden im Dokument")
-    zaehle_buchstaben(buch)
+    chars = count_chars(buch)
+    print(chars)
 
-def lese_buch(location):
+def read_text(location):
     with open(location) as f:
         return f.read()
     
-def zaehle_woerter(text):
-    woerter = text.split()
+def count_words(text):
+    words = text.split()
     # nachbesprechung: len(woerter) würde direkt die länge ausgeben
     counter = 0
-    for wort in woerter:
+    for word in words:
         counter += 1
     return counter
 
-def zaehle_buchstaben(text):
+def count_chars(text):
     after_convert = text.lower()
-    print(after_convert)
+    char_count = {}
+    for char in after_convert:
+        if char in char_count:
+            char_count[char] += 1
+        else:
+            char_count[char] = 1
+    return char_count
 
 if __name__ == "__main__":
     main()
