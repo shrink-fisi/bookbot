@@ -1,3 +1,4 @@
 # bookbot
 
-BookBot is my first project!
+Project from boot.dev learning path.
+First python project.
